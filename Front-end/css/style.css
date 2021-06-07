@@ -7341,6 +7341,10 @@ textarea.form-control-lg {
   background-image: var(--bs-gradient) !important;
 }
 
+.bg-navbar {
+  background-color: #f3e9f1; /* Custom color */
+}
+
 .user-select-all {
   user-select: all !important;
 }
