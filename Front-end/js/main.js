@@ -1,19 +1,20 @@
 // Ici nous créons une classe products pour créer des instances réutilisables dans notre app
 class products {
-  constructor(id, description, imageUrl, customize, name, price) { // Le constructor sera appelé lors d'une nouvelle instance
+  constructor(id, description, imageUrl, customize, name, price) {
+    // Le constructor sera appelé lors d'une nouvelle instance
     this.id = id;
     this.description = description;
     this.imageUrl = imageUrl;
     this.customize = customize;
     this.name = name;
     this.price = price;
+    this.selectCustomization = customize[0];
   }
 
   // Déclaration de fonctions pour le contenu html / css des différentes pages
   displayProducts() {
     //On créé notre structure html qui acceuillera les données de la page d'acceuil
     let cameraList = document.querySelector(".itemsList");
-
     let cameraBox = document.createElement("div");
     cameraList.append(cameraBox);
     cameraBox.className = "card col-md-4  m-2 p-3 text-center cameraBox"; // On y intègre également les classes utilitaires Bootstrap
@@ -57,35 +58,47 @@ class products {
 
     let articleBox = document.createElement("div");
     articleContainer.append(articleBox);
-    articleBox.className = "col-10 m-4 p-3 d-flex justify-content-center itemBox"; // On y intègre également les classes utilitaires Bootstrap
+    articleBox.className =
+      "col-10 col-md-10 m-4 p-3 d-flex justify-content-center itemBox"; // On y intègre également les classes utilitaires Bootstrap
 
     let articleImg = document.createElement("img");
     articleBox.append(articleImg);
     articleImg.setAttribute("src", this.imageUrl);
     articleImg.setAttribute("alt", "Camera" + this.name);
     articleImg.setAttribute("title", "Camera " + this.name);
-    articleImg.className = "w-75 articleImg";
+    articleImg.className = "img-responsive w-75 articleImg";
 
     let articleTextBox = document.createElement("div");
     articleBox.append(articleTextBox);
-    articleTextBox.className = "articleTextBox p-4 d-flex flex-column justify-content-around";
+    articleTextBox.className =
+      "articleTextBox p-4 d-flex flex-column justify-content-around";
 
     // Ajout du nom de l'article
     let articleName = document.createElement("h3");
     articleTextBox.append(articleName);
     articleName.textContent = this.name;
-    articleName.className = "card-title";
 
     // Ajout de la description
     let articleDetail = document.createElement("p");
     articleTextBox.append(articleDetail);
     articleDetail.textContent = this.description;
-    articleDetail.className = "card-text";
 
     // AJout du prix
     let articlePrice = document.createElement("p");
     articleTextBox.append(articlePrice);
     articlePrice.textContent = this.price / 100 + " €";
+
+    // Ajout du menu déroulant
+    let articleOptions = document.querySelector(".form-select");
+    articleTextBox.append(articleOptions);
+    // Utilisaton d'une boucle pour afficher les options disponibles en fonction de l'article affiché
+    for (let i = 0; i < this.customize.length; i++) {
+      let articleOption = document.createElement("option");
+      articleOption.textContent = this.customize[i];
+      articleOptions.append(articleOption);
+    }
+
+    // Ajout du bouton panier
   }
 }
 
