@@ -9,11 +9,11 @@ const getCameras = async function () {
       // Et celle d'en récupérer le contenu
       for (let i = 0; i < data.length; i++) {
         // Boucle créé pour itérer chaque article à partir de la class products
-        let cameras = new products( // On appelle le construtor de la class
+        let cameras = new products( // On appelle le constructor de la class
           data[i]._id,
           data[i].description,
           data[i].imageUrl,
-          data[i].customize,
+          data[i].lenses,
           data[i].name,
           data[i].price
         );

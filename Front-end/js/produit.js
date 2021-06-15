@@ -14,11 +14,11 @@ const getCameras = async function () {
         data._id,
         data.description,
         data.imageUrl,
-        data.customize,
+        data.lenses,
         data.name,
         data.price
       );
-
+      console.log(cameras)
       cameras.displayArticle();
     })
     .catch(function (response) {
