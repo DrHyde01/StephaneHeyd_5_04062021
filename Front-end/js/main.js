@@ -1,4 +1,4 @@
-// Ici nous créons une classe products pour créer des instances réutilisables dans notre app
+// Ici nous créons une classe products pour rendre notre script plus maintenable
 class products {
   constructor(id, description, imageUrl, customize, name, price) {
     // Le constructor sera appelé lors d'une nouvelle instance
@@ -14,7 +14,7 @@ class products {
   // Déclaration de fonctions pour le contenu html / css des différentes pages
   displayProducts() {
     //On créé notre structure html qui acceuillera les données de la page d'acceuil
-    let cameraList = document.querySelector(".itemsList");
+    let cameraList = document.querySelector(".itemsList"); // MODIFIER NOM VARIABLES par PRODUCTS !
     let cameraBox = document.createElement("div");
     cameraList.append(cameraBox);
     cameraBox.className = "card col-md-4  m-2 p-3 text-center cameraBox"; // On y intègre également les classes utilitaires Bootstrap
@@ -99,7 +99,12 @@ class products {
     }
 
     // Ajout du bouton panier
+    let articleAdd = document.createElement("p");
+    articleTextBox.append(articleAdd);
+    articleAdd.textContent = "Ajouter au panier";
+    articleAdd.className = "btn btn-primary m-3";
   }
+  
 }
 
 export default products;
