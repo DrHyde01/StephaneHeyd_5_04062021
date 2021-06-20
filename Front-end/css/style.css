@@ -10735,4 +10735,16 @@ textarea.form-control-lg {
   }
 }
 
+.cart-basket {  /* Rajout d'un widget affichant le nombre d'articles dans le panier */ 
+  font-size: .6rem;
+  position: absolute;
+  top: -6px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  background-color: #9a61de;
+  border-radius: 50%;
+}
+
 /*# sourceMappingURL=style.css.map */

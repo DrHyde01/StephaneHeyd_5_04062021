@@ -66,7 +66,7 @@ class products {
     articleImg.setAttribute("src", this.imageUrl);
     articleImg.setAttribute("alt", "Camera" + this.name);
     articleImg.setAttribute("title", "Camera " + this.name);
-    articleImg.className = "img-responsive w-75 articleImg";
+    articleImg.className = "img-responsive w-100 m-3 articleImg";
 
     let articleTextBox = document.createElement("div");
     articleBox.append(articleTextBox);
@@ -89,11 +89,19 @@ class products {
     articlePrice.textContent = this.price / 100 + " €";
 
     // Ajout du menu déroulant
+    let formOptions = document.querySelector(".form-group");
+    articleTextBox.append(formOptions);
     let articleOptions = document.querySelector(".form-select");
-    articleTextBox.append(articleOptions);
+    formOptions.append(articleOptions);
+
+    articleOptions.addEventListener("change", () => {
+      this.selectCustomization = this.customize[articleOptions.selectedIndex];
+    });
+
     // Utilisaton d'une boucle pour afficher les options disponibles en fonction de l'article affiché
     for (let i = 0; i < this.customize.length; i++) {
       let articleOption = document.createElement("option");
+      articleOption.value = this.customize[i];
       articleOption.textContent = this.customize[i];
       articleOptions.append(articleOption);
     }
@@ -102,9 +110,8 @@ class products {
     let articleAdd = document.createElement("p");
     articleTextBox.append(articleAdd);
     articleAdd.textContent = "Ajouter au panier";
-    articleAdd.className = "btn btn-primary m-3";
+    articleAdd.className = "btn btn-primary m-3 btn-order";
   }
-  
 }
 
 export default products;

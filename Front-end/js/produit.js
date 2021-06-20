@@ -19,7 +19,7 @@ await fetch(apiURL) // En rajoutant la variable urlID on demande que le produit 
       data.imageUrl,
       data.lenses,
       data.name,
-      data.price
+      data.price 
     );
 
     cameras.displayArticle();
@@ -29,12 +29,19 @@ await fetch(apiURL) // En rajoutant la variable urlID on demande que le produit 
   });
 
 // Mise en place du panier
-let addArticle = {
+let orderBtn = document.querySelector(".btn-order"); // On cible le bouton "ajouter au panier"
+
+orderBtn.addEventListener("click", () => {
+
+let newArticle = { // Objet créé pour regrouper les informations qui seront affichées dans le panier
   id: cameras.id,
   name: cameras.name,
-  price: cameras.price,
-  lense: cameras.lenses,
+  price: cameras.price / 100 + "€",
+  lense: cameras.selectCustomization,
   number: quantity,
 };
+console.log(newArticle)
+});
 
-console.log(addArticle);
+
+
