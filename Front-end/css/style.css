@@ -10734,7 +10734,7 @@ textarea.form-control-lg {
   }
 }
 
-.cart-basket {  /* Rajout d'un widget affichant le nombre d'articles dans le panier */ 
+.cart-widget {  /* Rajout d'un widget affichant le nombre d'articles dans le panier */ 
   font-size: .6rem;
   position: absolute;
   top: -6px;
