@@ -38,53 +38,23 @@
             <a class="nav-link position-relative" href="panier.html">
               <i class="fas fa-shopping-cart fa-lg"></i>
 
-              <span
-                class="
-                  cart-widget
-                  d-flex
-                  align-items-center
-                  justify-content-center
-                "
-              >
-                0
-              </span></a
-            >
+              <span class="cart-widget"> </span
+            ></a>
           </li>
         </ul>
       </div>
     </nav>
 
     <div class="container">
-      <div class="table-responsive col-12">
-        <table class="table cartTable">
-          <thead>
-            <tr>
-              <th scope="col">Article</th>
-              <th scope="col">Option</th>
-              <th scope="col">Quantité</th>
-              <th scope="col">Prix</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th class ="cartArticle" scope="row">test</th>
-              <td class="cartOption">test</td>
-              <td>
-                <select name="">
-                  <option value="" selected="selected"></option>
-                  <option value=""></option>
-                </select>
-              </td>
-              <td class="cartPrice">test</td>
-              <td>
-                <button type="button" class="btn btn-danger">
-                  <i class="far fa-trash-alt"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      
+      <!-- Un message s'affiche ici si le panier est vide-->
+
+      <div class="table-responsive col-12 m-3">
+        <h3 class="text-center">Votre panier</h3>
+        <div class="emptyCart"></div>
+        <table
+          class="table table-striped table-hover align-middle cartTable"
+        ></table>
       </div>
     </div>
 

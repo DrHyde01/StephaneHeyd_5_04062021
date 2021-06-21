@@ -10735,7 +10735,7 @@ textarea.form-control-lg {
 }
 
 .cart-widget {  /* Rajout d'un widget affichant le nombre d'articles dans le panier */ 
-  font-size: .6rem;
+  font-size: .8rem;
   position: absolute;
   top: -6px;
   right: -5px;
@@ -10744,6 +10744,7 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #9a61de;
   border-radius: 50%;
+  text-align: center;  
 }
 
 /*# sourceMappingURL=style.css.map */

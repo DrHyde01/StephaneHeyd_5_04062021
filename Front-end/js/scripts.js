@@ -3,10 +3,12 @@
 let cart = JSON.parse(localStorage.getItem("articleStored")) || [];
 let navCartWidget = document.querySelector(".cart-widget");
 
+cartAddWidget();
+
 function cartAddWidget() {
   cart = JSON.parse(localStorage.getItem("articleStored")) || []; // Récupération du localStorage
 
-  if (cart.length === 0) { 
+  if (cart.length === 0) {
     navCartWidget.style.display = "none";
   } else {
     let count = 0;
@@ -17,7 +19,3 @@ function cartAddWidget() {
     navCartWidget.style.display = "inline-block";
   }
 }
-
-cartAddWidget();
-
-
