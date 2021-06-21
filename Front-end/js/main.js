@@ -1,4 +1,4 @@
-// Ici nous créons une classe products pour rendre notre script plus maintenable
+// Ici nous créons une classe products pour rendre notre script plus maintenable -----------------------------------
 class products {
   constructor(id, description, imageUrl, customize, name, price) {
     // Le constructor sera appelé lors d'une nouvelle instance
@@ -11,7 +11,8 @@ class products {
     this.selectCustomization = customize[0];
   }
 
-  // Déclaration de fonctions pour le contenu html / css des différentes pages
+  // Déclaration de fonctions pour le contenu html / css des différentes pages --------------------------------------
+
   displayProducts() {
     //On créé notre structure html qui acceuillera les données de la page d'acceuil
     let cameraList = document.querySelector(".itemsList"); // MODIFIER NOM VARIABLES par PRODUCTS !
@@ -59,19 +60,21 @@ class products {
     let articleBox = document.createElement("div");
     articleContainer.append(articleBox);
     articleBox.className =
-      "col-10 col-md-10 m-4 p-3 d-flex justify-content-center itemBox"; // On y intègre également les classes utilitaires Bootstrap
+      "col-12 col-md-10 m-4 p-3 d-flex justify-content-center flex-wrap flex-md-nowrap itemBox"; // On y intègre également les classes utilitaires Bootstrap
 
+    let imgBox = document.createElement("div");
+    articleBox.append(imgBox);
+    imgBox.className = "col-md-6 m-3 d-flex align-items-center";
     let articleImg = document.createElement("img");
-    articleBox.append(articleImg);
+    imgBox.append(articleImg);
     articleImg.setAttribute("src", this.imageUrl);
     articleImg.setAttribute("alt", "Camera" + this.name);
     articleImg.setAttribute("title", "Camera " + this.name);
-    articleImg.className = "img-responsive w-100 m-3 articleImg";
+    articleImg.className = "img-thumbnail articleImg";
 
     let articleTextBox = document.createElement("div");
     articleBox.append(articleTextBox);
-    articleTextBox.className =
-      "articleTextBox p-4 d-flex flex-column justify-content-around";
+    articleTextBox.className = "articleTextBox p-4 d-flex flex-column justify-content-around";
 
     // Ajout du nom de l'article
     let articleName = document.createElement("h3");
