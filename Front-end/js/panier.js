@@ -14,26 +14,30 @@ function createCartArray() {
     let headName = document.createElement("th");
     let headOption = document.createElement("th");
     let headQuantity = document.createElement("th");
-    let headPrice = document.createElement("th");
+    let headUniquePrice = document.createElement("th");
+    let headTotalPrice = document.createElement("th");
     let deleteArticle = document.createElement("th");
 
     headName.classList.add("text-center");
     headOption.classList.add("text-center");
     headQuantity.classList.add("text-center");
-    headPrice.classList.add("text-center");
+    headUniquePrice.classList.add("text-center");
+    headTotalPrice.classList.add("text-center");
     deleteArticle.classList.add("text-center");
 
     headName.textContent = "Nom";
     headOption.textContent = "Objectif";
     headQuantity.textContent = "Quantité";
-    headPrice.textContent = "Prix";
+    headUniquePrice.textContent = "Prix unitaire";
+    headTotalPrice.textContent = "Prix total";
     deleteArticle.textContent = "";
 
     cartTable.appendChild(tableHead);
     tableHead.appendChild(headName);
     tableHead.appendChild(headOption);
     tableHead.appendChild(headQuantity);
-    tableHead.appendChild(headPrice);
+    tableHead.appendChild(headUniquePrice);
+    tableHead.appendChild(headTotalPrice);
     tableHead.appendChild(deleteArticle);
 
     let tableBody = document.createElement("tbody"); // On rajoute une ligne au tableau pour chaque article ajouté
@@ -46,16 +50,33 @@ function createCartArray() {
     function createArrayLine(item, i) {
       let articleIndex = i;
       let articleLine = document.createElement("tr");
+      
 
       let lineName = document.createElement("td");
       let lineOption = document.createElement("td");
       let lineQuantity = document.createElement("td");
-      let linePrice = document.createElement("td");
+      let lineUniquePrice = document.createElement("td");
+      let lineTotalPrice = document.createElement("td");
       let lineDelete = document.createElement("td");
-    
       
       lineName.textContent = item.name;
-      //console.log(item.name); -> item bien retrouvé, plus qu'à l'afficher dans le tableau ...
+      lineOption.textContent = item.lense;
+      lineQuantity.textContent = item.number;
+      lineUniquePrice.textContent = item.price + " €";
+      lineTotalPrice.textContent = (item.price * item.number) + " €";
+      lineDelete.innerHTML = "<button type='button' class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i></button>";
+
+      tableBody.appendChild(articleLine);
+      articleLine.appendChild(lineName);
+      articleLine.appendChild(lineOption);
+      articleLine.appendChild(lineQuantity);
+      articleLine.appendChild(lineUniquePrice);
+      articleLine.appendChild(lineTotalPrice);
+      articleLine.appendChild(lineDelete);
+    
+      
+      
+      // console.log([item.name, item.price, item.number]); // -> item bien retrouvé, plus qu'à l'afficher dans le tableau ...
       return articleLine;
 
        

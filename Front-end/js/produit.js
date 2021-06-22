@@ -38,7 +38,7 @@ orderBtn.addEventListener("click", () => {
     // Objet créé pour sélectionner les informations les informations inhérentes à l'article sélectionné
     id: cameras.id,
     name: cameras.name,
-    price: cameras.price / 100 + "€",
+    price: cameras.price / 100 ,
     lense: cameras.selectCustomization,
     number: quantity,
   };
