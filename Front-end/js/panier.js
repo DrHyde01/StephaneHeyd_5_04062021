@@ -1,4 +1,3 @@
-let cartContainerEmpty = document.querySelector(".emptyCart");
 let cartTable = document.querySelector(".cartTable");
 let totalPrice;
 
@@ -18,6 +17,7 @@ function createCartArray() {
     let headUniquePrice = document.createElement("th");
     let headTotalPrice = document.createElement("th");
     let deleteArticle = document.createElement("th");
+    let cartTotal = document.querySelector(".cartTotal");
 
     headName.classList.add("text-center");
     headOption.classList.add("text-center");
@@ -47,6 +47,7 @@ function createCartArray() {
       totalPrice += cart[i].price * cart[i].number;
     }
 
+    cartTotal.textContent = "Total : " + totalPrice + " €";
     console.log(totalPrice);
 
     cartTable.appendChild(tableBody);
@@ -114,7 +115,7 @@ function createCartArray() {
       // Fonctions permettant de rajouter ou supprimer des éléments du panier -----------------------------
 
       quantityLess.addEventListener("click", () => {
-        // Enlever un même article
+        // Enlever l'exemplaire d'un article
         if (item.number > 1) {
           // Uniquement si il y a plus d'un article
           cart[i].number--;
@@ -125,7 +126,7 @@ function createCartArray() {
       });
 
       quantityMore.addEventListener("click", () => {
-        // Rajouter un même article
+        // Rajouter l'exemplaire d'un article
         cart[i].number++;
         localStorage.setItem("articleStored", JSON.stringify(cart));
         createCartArray();
