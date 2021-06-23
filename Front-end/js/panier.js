@@ -17,7 +17,11 @@ function createCartArray() {
     let headUniquePrice = document.createElement("th");
     let headTotalPrice = document.createElement("th");
     let deleteArticle = document.createElement("th");
-    let cartTotal = document.querySelector(".cartTotal");
+    let tableFooter = document.createElement("tfoot");
+    let tableFooterLine = document.createElement("td");
+    let footerTotal = document.createElement("th");
+    let footerCheckout = document.createElement("th");
+    let footerCheckoutBtn = document.createElement("button");
 
     headName.classList.add("text-center");
     headOption.classList.add("text-center");
@@ -25,6 +29,10 @@ function createCartArray() {
     headUniquePrice.classList.add("text-center");
     headTotalPrice.classList.add("text-center");
     deleteArticle.classList.add("text-center");
+    footerCheckoutBtn.classList.add("btn", "btn-success", "btn-small");
+
+    tableFooterLine.setAttribute("align", "right"); // Ajustement pour la ligne "total
+    tableFooterLine.setAttribute("colspan", "6");
 
     headName.textContent = "Nom";
     headOption.textContent = "Objectif";
@@ -32,14 +40,20 @@ function createCartArray() {
     headUniquePrice.textContent = "Prix unitaire";
     headTotalPrice.textContent = "Prix total";
     deleteArticle.textContent = "";
+    footerCheckoutBtn.textContent = "Commander";
 
     cartTable.appendChild(tableHead);
+    cartTable.appendChild(tableFooter);
     tableHead.appendChild(headName);
     tableHead.appendChild(headOption);
     tableHead.appendChild(headQuantity);
     tableHead.appendChild(headUniquePrice);
     tableHead.appendChild(headTotalPrice);
     tableHead.appendChild(deleteArticle);
+    tableFooter.appendChild(tableFooterLine);
+    tableFooterLine.appendChild(footerTotal);
+    tableFooterLine.appendChild(footerCheckout);
+    footerCheckout.appendChild(footerCheckoutBtn);
 
     let tableBody = document.createElement("tbody"); // On rajoute une ligne au tableau pour chaque article ajouté
     for (let i = 0; i < cart.length; i++) {
@@ -47,7 +61,7 @@ function createCartArray() {
       totalPrice += cart[i].price * cart[i].number;
     }
 
-    cartTotal.textContent = "Total : " + totalPrice + " €";
+    footerTotal.textContent = "Total : " + totalPrice + " €";
     console.log(totalPrice);
 
     cartTable.appendChild(tableBody);
