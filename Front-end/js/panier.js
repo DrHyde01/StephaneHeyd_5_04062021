@@ -1,11 +1,19 @@
+// Déclaration de variables qui doivent être dispoibles sur l'ensemble de la page
 let cartTable = document.querySelector(".cartTable");
+let cartForm = document.querySelector(".formContainer");
+
+let footerCheckoutBtn = document.createElement("button");
+
 let totalPrice;
+
+cartForm.style.display = "none"; // Le formulaire ne doit être affiché par défaut
 
 createCartArray();
 
 // Mise en place du panier sous forme d'un tableau --------------------------------------------------------
 function createCartArray() {
-  cartTable.innerHTML = "";
+  cartTable.innerHTML = ""; // Le tableau est vide tant que le panier l'est
+
   let cart = JSON.parse(localStorage.getItem("articleStored")) || [];
   if (cart.length > 0) {
     totalPrice = 0;
@@ -21,7 +29,6 @@ function createCartArray() {
     let tableFooterLine = document.createElement("td");
     let footerTotal = document.createElement("th");
     let footerCheckout = document.createElement("th");
-    let footerCheckoutBtn = document.createElement("button");
 
     headName.classList.add("text-center");
     headOption.classList.add("text-center");
@@ -92,14 +99,14 @@ function createCartArray() {
         "quantity-button",
         "btn",
         "btn-sm",
-        "btn-outline-primary"
+        "btn-outline-secondary"
       );
       quantityNumber.classList.add("text-center", "m-0");
       quantityMore.classList.add(
         "quantity-button",
         "btn",
         "btn-sm",
-        "btn-outline-primary"
+        "btn-outline-secondary"
       );
       lineUniquePrice.classList.add("text-center");
       lineTotalPrice.classList.add("text-center");
@@ -162,5 +169,13 @@ function createCartArray() {
     // Un message apparaît si le panier est vide
     cartTable.innerHTML =
       "<p class='text-center'>Oops ! Il semblerait que celui-ci soit vide.";
+    cartForm.innerHTML = ""; // Le formulaire n'apparaît pas non plus
   }
 }
+
+// Mise en place du formulaire de commande ----------------------------------------------
+
+footerCheckoutBtn.addEventListener("click", () => {
+  // Le formulaire apparaît lorsqu'on clique sur le bouton "commander"
+  cartForm.style.display = "block";
+});
