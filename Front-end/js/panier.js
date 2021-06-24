@@ -4,7 +4,7 @@ let cartForm = document.querySelector(".formContainer");
 
 let footerCheckoutBtn = document.createElement("button");
 
-let totalPrice;
+let totalPrice = [];
 
 cartForm.style.display = "none"; // Le formulaire ne doit être affiché par défaut
 
@@ -201,7 +201,8 @@ function getFormData() {
   sendFormData({ products, contact }); // Appel de la formule ci-dessous en prenant comme arguments les articles commandées et les infos du formulaire
 }
 
-function sendFormData(data) { // Envoi de products et contact au serveur via la méthode POST
+function sendFormData(data) {
+  // Envoi de products et contact au serveur via la méthode POST
   fetch(apiURL + "order", {
     method: "POST",
     headers: {
@@ -216,6 +217,7 @@ function sendFormData(data) { // Envoi de products et contact au serveur via la 
     .then((response) => {
       localStorage.setItem("articleStoredConfirm", JSON.stringify(response)); // Le retour de l'API est placé dans le LocalStorage
       localStorage.setItem("articleStored", JSON.stringify([])); // Ainsi que la liste des articles commandés
+      localStorage.setItem('totalPrice', totalPrice); // On y rajoute le prix total pour l'utiliser sur la page de confirmation
       window.location.href = "confirmation.html"; // La page de confirmation est chargée
     })
     .catch((error) => {
@@ -228,6 +230,8 @@ footerCheckoutBtn.addEventListener("click", () => {
   cartForm.style.display = "block";
 });
 
-cartForm.addEventListener("submit", (evnt) => { 
+cartForm.addEventListener("submit", evnt => {
+  // Lorsqu'on clique sur le bouton du formulaire les données sont
+  evnt.preventDefault();
   getFormData();
 });
