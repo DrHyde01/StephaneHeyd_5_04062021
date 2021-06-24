@@ -1,3 +1,6 @@
+// Déclaration de l'URL de l'API
+const apiURL = "http://localhost:3000/api/cameras/"
+
 // Création d'une fonction permettant d'afficher le nombre d'articles présents dans le panier -------------------
 
 let cart = JSON.parse(localStorage.getItem("articleStored")) || [];

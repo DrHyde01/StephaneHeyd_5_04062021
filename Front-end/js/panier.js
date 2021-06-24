@@ -174,8 +174,60 @@ function createCartArray() {
 }
 
 // Mise en place du formulaire de commande ----------------------------------------------
+function getFormData() {
+  let products = [];
+  for (let i = 0; i < cart.length; i++) {
+    // Itération du nombre d'articles par ID, pour l'envoi au serveur
+    for (let j = 0; j < cart[i].number; j++) {
+      products.push(cart[i].id);
+    }
+  }
+
+  let firstName = document.getElementById("formFirstName").value; // On cible les données du formulaire
+  let lastName = document.getElementById("formLastName").value;
+  let address = document.getElementById("formAddress").value;
+  let city = document.getElementById("formCity").value;
+  let email = document.getElementById("formEmail").value;
+
+  let contact = {
+    // Création d'un object contact en prévision de son envoi au serveur
+    firstName: firstName,
+    lastName: lastName,
+    address: address,
+    city: city,
+    email: email,
+  };
+
+  sendFormData({ products, contact }); // Appel de la formule ci-dessous en prenant comme arguments les articles commandées et les infos du formulaire
+}
+
+function sendFormData(data) { // Envoi de products et contact au serveur via la méthode POST
+  fetch(apiURL + "order", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => {
+      console.log(response);
+      return response.json();
+    })
+    .then((response) => {
+      localStorage.setItem("articleStoredConfirm", JSON.stringify(response)); // Le retour de l'API est placé dans le LocalStorage
+      localStorage.setItem("articleStored", JSON.stringify([])); // Ainsi que la liste des articles commandés
+      window.location.href = "confirmation.html"; // La page de confirmation est chargée
+    })
+    .catch((error) => {
+      alert("Erreur !", error);
+    });
+}
 
 footerCheckoutBtn.addEventListener("click", () => {
   // Le formulaire apparaît lorsqu'on clique sur le bouton "commander"
   cartForm.style.display = "block";
+});
+
+cartForm.addEventListener("submit", (evnt) => { 
+  getFormData();
 });

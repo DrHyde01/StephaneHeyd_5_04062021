@@ -62,39 +62,39 @@
       <form>
         <div class="row justify-content-center">
           <div class="col-md-3">
-            <label for="firstName" class="form-label">Nom</label>
-            <input type="text" class="form-control" placeholder="Votre nom" id="firstName" required>
+            <label for="formFirstName" class="form-label">Nom</label>
+            <input type="text" class="form-control" placeholder="Votre nom" id="formFirstName" maxlength="50" required>
           </div>
           <div class="col-md-3">
-            <label for="lastName" class="form-label">Prénom</label>
-            <input type="text" class="form-control" placeholder="Votre prénom" id="lastName" required>
+            <label for="formLastName" class="form-label">Prénom</label>
+            <input type="text" class="form-control" placeholder="Votre prénom" id="formLastName" maxlength="50"required>
           </div>
         </div>
 
         <div class="row justify-content-center mt-3">
           <div class="col-md-6 ">
-            <label for="adress" class="form-label">Adresse</label>
-            <input type="text" class="form-control" placeholder="Votre adresse" id="adress" required>
+            <label for="formAddress" class="form-label">Adresse</label>
+            <input type="text" class="form-control" placeholder="Votre adresse" id="formAddress" required>
           </div>
         </div>
 
         <div class="row justify-content-center mt-3">
           <div class="col-md-6 ">
-            <label for="city" class="form-label">Ville</label>
-            <input type="text" class="form-control" placeholder="Votre ville" id="city" required>
+            <label for="formCity" class="form-label">Ville</label>
+            <input type="text" class="form-control" placeholder="Votre ville" id="formCity" required>
           </div>
         </div>
 
         <div class="row justify-content-center mt-3">
           <div class="col-md-6 ">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" placeholder="Votre adresse email" id="email" required>
+            <label for="formEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="Votre adresse email" id="formEmail" required>
           </div>
         </div>
 
         <div class="row justify-content-center mt-5">
           <div class="col-md-6 text-center">
-          <a class="btn btn-success" href="confirmation.html"type="submit">Finaliser votre commande </a>
+          <input class="btn btn-success" type="submit" id="orderBtn" value="Finaliser votre commande"></input>
           </div>
         </div>
       </form>

@@ -1,15 +1,13 @@
-// Récupérer le produit via la même méthode que dans index.JS, mais via l'ID présente dans l'URL
 import products from "./main.js";
 
-// Déclaration des URL pour l'API
+// Déclaration des paramètres URL à récupérer pour l'id
 const urlParams = new URLSearchParams(window.location.search); // On cible l'url de la page
 const urlID = urlParams.get("id"); // Puis l'ID renseigné dedans
-const apiURL = "http://localhost:3000/api/cameras/" + urlID;
 
 let cameras; // Variables déjà déclarées en prévision du panier
 let quantity = 1;
 
-await fetch(apiURL) // En rajoutant la variable urlID on demande que le produit lié à l'ID
+await fetch(apiURL + urlID) // En rajoutant la variable urlID on demande que le produit lié à l'ID
   .then((response) => response.json())
 
   .then((data) => {
@@ -38,7 +36,7 @@ orderBtn.addEventListener("click", () => {
     // Objet créé pour sélectionner les informations les informations inhérentes à l'article sélectionné
     id: cameras.id,
     name: cameras.name,
-    price: cameras.price / 100 ,
+    price: cameras.price / 100,
     lense: cameras.selectCustomization,
     number: quantity,
   };

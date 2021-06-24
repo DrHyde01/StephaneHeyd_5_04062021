@@ -1,7 +1,5 @@
 import products from "./main.js"; // On récupère la class products du fichier main
 
-const apiURL = "http://localhost:3000/api/cameras/";
-
 fetch(apiURL) // On récupère les articles de l'API
   .then((response) => response.json()) // La promesse d'un fichier JSON si l'API répond
 
@@ -21,6 +19,7 @@ fetch(apiURL) // On récupère les articles de l'API
       cameras.displayProducts(); // Et pour chaque article la structure html est récupérée
     }
   })
-  .catch((error) => { // Affichage d'une erreur si l'API ne répond pas
+  .catch((error) => {
+    // Affichage d'une erreur si l'API ne répond pas
     alert("Erreur !", error);
   });
