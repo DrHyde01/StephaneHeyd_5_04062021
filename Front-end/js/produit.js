@@ -7,7 +7,7 @@ const urlID = urlParams.get("id"); // Puis l'ID renseigné dedans
 let cameras; // Variables déjà déclarées en prévision du panier
 let quantity = 1;
 
-await fetch(apiURL + urlID) // En rajoutant la variable urlID on demande que le produit lié à l'ID
+fetch(apiURL + urlID) // En rajoutant la variable urlID on demande que le produit lié à l'ID
   .then((response) => response.json())
 
   .then((data) => {
@@ -56,5 +56,6 @@ orderBtn.addEventListener("click", () => {
 
   localStorage.setItem("articleStored", JSON.stringify(cartContent));
 
+  cartAddModal(); // Une modal s'affiche nous informant de l'ajout d'un article
   cartAddWidget(); // Le widget est mis à jour en fonction du nombre d'articles au panier
 });

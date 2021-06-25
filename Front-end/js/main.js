@@ -74,7 +74,8 @@ class products {
 
     let articleTextBox = document.createElement("div");
     articleBox.append(articleTextBox);
-    articleTextBox.className = "articleTextBox p-4 d-flex flex-column justify-content-around";
+    articleTextBox.className =
+      "articleTextBox p-4 d-flex flex-column justify-content-around";
 
     // Ajout du nom de l'article
     let articleName = document.createElement("h3");
@@ -110,10 +111,8 @@ class products {
     }
 
     // Ajout du bouton panier
-    let articleAdd = document.createElement("p");
+    let articleAdd = document.querySelector(".btn-order");
     articleTextBox.append(articleAdd);
-    articleAdd.textContent = "Ajouter au panier";
-    articleAdd.className = "btn btn-primary m-3 btn-order";
   }
 }
 

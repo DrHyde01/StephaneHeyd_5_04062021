@@ -22,3 +22,12 @@ function cartAddWidget() {
     navCartWidget.style.display = "inline-block";
   }
 }
+
+// Fonction affichant une modal lors de l'ajout d'article au panier
+function cartAddModal() {
+  let cartModal = document.querySelector(".modalCartAdd");
+  cartModal.style.display = "block";
+  setTimeout(() => {
+    cartModal.style.display = "none";
+  }, 2000);
+}
