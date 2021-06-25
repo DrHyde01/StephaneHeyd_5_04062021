@@ -6,6 +6,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -10734,6 +10735,8 @@ textarea.form-control-lg {
   }
 }
 
+/* CUSTOM CSS -------------------------------------------------------------------------------------- */
+
 .cart-widget {  /* Rajout d'un widget affichant le nombre d'articles dans le panier */ 
   font-size: .8rem;
   position: absolute;
@@ -10745,6 +10748,58 @@ textarea.form-control-lg {
   background-color: #9a61de;
   border-radius: 50%;
   text-align: center;  
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
 }
+
+.cart-widget:hover {
+  transform: scale(1.5);
+}
+
+.btn-primary {
+  background-color : #9a61de;
+  color: #FFFF;
+  border-color: #9a61de;
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+}
+
+
+.btn-primary:hover {
+  background-color : #8444d1;
+  color: #FFFF;
+  border-color: #8444d1;  
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.btn-success {
+  background-color : #4da64d;
+  color: #FFFF;
+  border-color: #4da64d;
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+}
+
+.btn-success:hover {
+  background-color : #3a803a;
+  color: #FFFF;
+  border-color: #3a803a;  
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+h3 {
+  color : #9a61de;
+}
+
+.card {
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+}
+
+.card:hover{
+  transform: scale(1.02);
+box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+
+
 
 /*# sourceMappingURL=style.css.map */
