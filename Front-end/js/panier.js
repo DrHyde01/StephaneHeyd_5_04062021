@@ -6,7 +6,7 @@ let footerCheckoutBtn = document.createElement("button");
 
 let totalPrice = [];
 
-cartForm.style.display = "none"; // Le formulaire ne doit être affiché par défaut
+cartForm.style.display = "none"; // Le formulaire ne doit pas être affiché par défaut
 
 createCartArray();
 
@@ -69,7 +69,7 @@ function createCartArray() {
     }
 
     footerTotal.textContent = "Total : " + totalPrice + " €";
-    console.log(totalPrice);
+    //console.log(totalPrice);
 
     cartTable.appendChild(tableBody);
 
@@ -162,7 +162,8 @@ function createCartArray() {
         cartAddWidget();
       });
 
-      // console.log([item.name, item.price, item.number]); // -> item bien retrouvé, plus qu'à l'afficher dans le tableau ...
+      //console.log([item.name, item.price, item.number]); 
+
       return articleLine;
     }
   } else {
@@ -231,7 +232,7 @@ footerCheckoutBtn.addEventListener("click", () => {
 });
 
 cartForm.addEventListener("submit", evnt => {
-  // Lorsqu'on clique sur le bouton du formulaire les données sont
+  // Lorsqu'on clique sur le bouton du formulaire les données sont transmises au serveur 
   evnt.preventDefault();
   getFormData();
 });

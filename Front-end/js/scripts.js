@@ -1,7 +1,7 @@
 // Déclaration de l'URL de l'API
 const apiURL = "http://localhost:3000/api/cameras/"
 
-// Création d'une fonction permettant d'afficher le nombre d'articles présents dans le panier -------------------
+// Création d'une fonction permettant d'afficher dans un widdget le nombre d'articles présents dans le panier -------------------
 
 let cart = JSON.parse(localStorage.getItem("articleStored")) || [];
 let navCartWidget = document.querySelector(".cart-widget");
@@ -29,5 +29,5 @@ function cartAddModal() {
   cartModal.style.display = "block";
   setTimeout(() => {
     cartModal.style.display = "none";
-  }, 2000);
+  }, 1000);
 }

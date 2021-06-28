@@ -27,8 +27,27 @@ fetch(apiURL + urlID) // En rajoutant la variable urlID on demande que le produi
   });
 
 // Mise en place du panier ------------------------------------------------------------------------------
+
+// Gestion des boutons permettant de choisir le nombre d'articles
+let buttonLess = document.getElementById("quantityLess");
+buttonLess.addEventListener("click", () => {
+  if (quantity > 1) {
+    quantity--;
+    document.getElementById("quantityNumber").innerHTML = quantity;
+    document.getElementById("quantityName").style.display = "none";
+  }
+});
+
+let buttonMore = document.getElementById("quantityMore");
+buttonMore.addEventListener("click", () => {
+  quantity++;
+  document.getElementById("quantityNumber").innerHTML = quantity;
+  document.getElementById("quantityName").style.display = "none";
+});
+
 let orderBtn = document.querySelector(".btn-order"); // On cible le bouton "ajouter au panier"
 
+// Gestion du bouton "ajouter au panier"
 orderBtn.addEventListener("click", () => {
   // La fonction va rajouter l'article dans le Localstorage lors du clic sur le bouton "Ajouter au panier"
   let cartContent = JSON.parse(localStorage.getItem("articleStored")) || []; // L'objet ci-dessous sera récupéré dans un tableau

@@ -110,6 +110,10 @@ class products {
       articleOptions.append(articleOption);
     }
 
+    //Ajout de boutons pour modifier la quantité d'article à mettre dans le panier
+    let quantityContainer = document.querySelector(".quantityContainer");
+    articleTextBox.append(quantityContainer);
+
     // Ajout du bouton panier
     let articleAdd = document.querySelector(".btn-order");
     articleTextBox.append(articleAdd);

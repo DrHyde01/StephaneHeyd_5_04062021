@@ -45,14 +45,25 @@
       </div>
     </nav>
 
-    <div class="container">  
+    <div class="container">
       <div class="row d-flex justify-content-center itemContainer">
         <div class="form-group mt-3">
           <label for="options">Sélectionnez une option :</label>
           <select class="form-select mt-3 mb-3" label="options"></select>
         </div>
 
-        <p class="btn btn-primary m-3 btn-order">Ajouter au panier</p> 
+        <div class="quantityContainer text-center mt-3"> <!-- Boutons pour choisir le nombre d'articles-->
+          <label id="quantityName">Quantitée</label>
+          <button class="btn btn-sm btn-outline-secondary mx-2" id="quantityLess">
+            -
+          </button>
+          <label id="quantityNumber">1</label>
+          <button class="btn btn-sm btn-outline-secondary mx-2" id="quantityMore">
+            +
+          </button>
+
+          <p class="btn btn-primary mt-3 btn-order">Ajouter au panier</p> <!-- Bouton panier-->
+        </div>
       </div>
     </div>
 
