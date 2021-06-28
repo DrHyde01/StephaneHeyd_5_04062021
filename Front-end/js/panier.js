@@ -4,8 +4,6 @@ let cartForm = document.querySelector(".formContainer");
 
 let footerCheckoutBtn = document.createElement("button");
 
-let totalPrice = [];
-
 cartForm.style.display = "none"; // Le formulaire ne doit pas être affiché par défaut
 
 createCartArray();
@@ -162,7 +160,7 @@ function createCartArray() {
         cartAddWidget();
       });
 
-      //console.log([item.name, item.price, item.number]); 
+      //console.log([item.name, item.price, item.number]);
 
       return articleLine;
     }
@@ -231,8 +229,8 @@ footerCheckoutBtn.addEventListener("click", () => {
   cartForm.style.display = "block";
 });
 
-cartForm.addEventListener("submit", evnt => {
-  // Lorsqu'on clique sur le bouton du formulaire les données sont transmises au serveur 
+cartForm.addEventListener("submit", (evnt) => {
+  // Lorsqu'on clique sur le bouton du formulaire les données sont transmises au serveur
   evnt.preventDefault();
   getFormData();
 });
