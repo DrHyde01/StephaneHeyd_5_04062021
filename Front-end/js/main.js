@@ -5,9 +5,10 @@ class products {
     this.id = id;
     this.description = description;
     this.imageUrl = imageUrl;
+    this.customize = customize;
     this.name = name;
     this.price = price;
-    this.customize = customize;
+    this.selectCustomization = customize[0];
   }
 
   // Déclaration de fonctions pour le contenu html / css des différentes pages --------------------------------------
