@@ -1,5 +1,5 @@
 // Déclaration de l'URL de l'API
-const apiURL = "http://localhost:3000/api/cameras/"
+const apiURL = "http://localhost:3000/api/cameras/";
 
 // Création d'une fonction permettant d'afficher dans un widdget le nombre d'articles présents dans le panier -------------------
 

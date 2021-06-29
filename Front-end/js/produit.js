@@ -22,6 +22,7 @@ fetch(apiURL + urlID) // En rajoutant la variable urlID on demande que le produi
 
     cameras.displayArticle();
   })
+
   .catch((error) => {
     alert("Erreur !", error);
   });

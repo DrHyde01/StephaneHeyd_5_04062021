@@ -15,7 +15,7 @@ fetch(apiURL) // On récupère les articles de l'API
         data[i].name,
         data[i].price
       );
-
+      console.log(cameras)
       cameras.displayProducts(); // Et pour chaque article la structure html est récupérée
     }
   })

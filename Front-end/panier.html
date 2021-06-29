@@ -67,32 +67,32 @@
         <div class="row justify-content-center">
           <div class="col-md-3">
             <label for="formFirstName" class="form-label">Nom</label>
-            <input type="text" class="form-control" placeholder="Votre nom" id="formFirstName" maxlength="50" required>
+            <input type="text" class="form-control" pattern="[A-Za-z]{1,50}" placeholder="Votre nom" id="formFirstName" maxlength="50" required>
           </div>
           <div class="col-md-3">
             <label for="formLastName" class="form-label">Prénom</label>
-            <input type="text" class="form-control" placeholder="Votre prénom" id="formLastName" maxlength="50"required>
+            <input type="text" class="form-control" pattern="[A-Za-zÀ-ú]{1,50}" placeholder="Votre prénom" id="formLastName" maxlength="50"required>
           </div>
         </div>
 
         <div class="row justify-content-center mt-3">
           <div class="col-md-6 ">
             <label for="formAddress" class="form-label">Adresse</label>
-            <input type="text" class="form-control" placeholder="Votre adresse" id="formAddress" required>
+            <input type="text" class="form-control" pattern="[A-Za-z 0-9]{1,100}" placeholder="Votre adresse" id="formAddress" required>
           </div>
         </div>
 
         <div class="row justify-content-center mt-3">
           <div class="col-md-6 ">
             <label for="formCity" class="form-label">Ville</label>
-            <input type="text" class="form-control" placeholder="Votre ville" id="formCity" required>
+            <input type="text" class="form-control" pattern="[A-Za-z ]{1,50}" placeholder="Votre ville" id="formCity" required>
           </div>
         </div>
 
         <div class="row justify-content-center mt-3">
           <div class="col-md-6 ">
             <label for="formEmail" class="form-label">Email</label>
-            <input type="email" class="form-control" placeholder="Votre adresse email" id="formEmail" required>
+            <input type="email" class="form-control" pattern="[a-z0-9\._%+-]+@[a-z0-9.-]+\.[a-z]{2,10}" placeholder="Votre adresse email" id="formEmail" required>
           </div>
         </div>
 
