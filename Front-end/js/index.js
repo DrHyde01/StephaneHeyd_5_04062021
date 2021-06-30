@@ -11,11 +11,11 @@ fetch(apiURL) // On récupère les articles de l'API
         data[i]._id,
         data[i].description,
         data[i].imageUrl,
-        data[i].lenses,
+        data[i].lenses || data[i].colors || data[i].varnish, // Les options seront sélectionnez en fonction de l'API demandée
         data[i].name,
         data[i].price
       );
-      console.log(cameras)
+      console.log(cameras);
       cameras.displayProducts(); // Et pour chaque article la structure html est récupérée
     }
   })

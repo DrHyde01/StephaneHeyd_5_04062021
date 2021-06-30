@@ -15,11 +15,11 @@ fetch(apiURL + urlID) // En rajoutant la variable urlID on demande que le produi
       data._id,
       data.description,
       data.imageUrl,
-      data.lenses,
+      data.lenses || data.colors || data.varnish, // Les options seront sélectionnez en fonction de l'API demandée
       data.name,
       data.price
     );
-
+    //console.log(cameras);
     cameras.displayArticle();
   })
 
