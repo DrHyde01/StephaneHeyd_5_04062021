@@ -1,5 +1,5 @@
 // Déclaration de l'URL de l'API -------------------------------------------------------------------------------------
-const apiURL = "http://localhost:3000/api/teddies/";
+const apiURL = "http://localhost:3000/api/cameras/";
 
 // Déclaration de variables utilisées sur l'ensemble du site -----------------------------------------------------------
 let cart = JSON.parse(localStorage.getItem("articleStored")) || []; // localStorage
