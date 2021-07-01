@@ -21,7 +21,7 @@ class products {
 
     // Création d'un contenu cliquable vers la page du produit concerné
     let cameraLink = document.createElement("a");
-    cameraLink.href = "produit.html?id=" + this.id;
+    cameraLink.href = "Front-end/produit.html?id=" + this.id;
     cameraBox.append(cameraLink);
     cameraLink.setAttribute("title", "Acheter la caméra " + this.name); //Ajout d'une info-bulle
     cameraLink.className = "cameraLink text-decoration-none";
