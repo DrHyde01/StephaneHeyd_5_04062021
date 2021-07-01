@@ -1,7 +1,7 @@
 // Déclaration de l'URL de l'API -------------------------------------------------------------------------------------
 const apiURL = location.hostname === 'localhost' || location.hostname === '127.0.0.1'
 ? 'http://localhost:3000/api/cameras/'
-: 'https://onirico04062021.herokuapp.com';
+: 'https://onirico04062021.herokuapp.com/api/cameras';
 
 // Déclaration de variables utilisées sur l'ensemble du site -----------------------------------------------------------
 let cart = JSON.parse(localStorage.getItem("articleStored")) || []; // localStorage
