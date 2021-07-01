@@ -1,14 +1,13 @@
-// Déclaration de variables qui doivent être dispoibles sur l'ensemble de la page
+// Déclaration de variables qui doivent être dispoibles sur l'ensemble de la page -----------------------------------
 let cartTable = document.querySelector(".cartTable");
 let cartForm = document.querySelector(".formContainer");
-
 let footerCheckoutBtn = document.createElement("button");
 
-cartForm.style.display = "none"; // Le formulaire ne doit pas être affiché par défaut
+cartForm.style.display = "none"; // Le formulaire ne doit pas être affiché tout de suite
 
 createCartArray();
 
-// Mise en place du panier sous forme d'un tableau --------------------------------------------------------
+// Mise en place du panier sous forme d'un tableau --------------------------------------------------------------------
 function createCartArray() {
   cartTable.innerHTML = ""; // Le tableau est vide tant que le panier l'est
 
@@ -36,7 +35,7 @@ function createCartArray() {
     deleteArticle.classList.add("text-center");
     footerCheckoutBtn.classList.add("btn", "btn-success", "btn-small");
 
-    tableFooterLine.setAttribute("align", "right"); // Ajustement pour la ligne "total
+    tableFooterLine.setAttribute("align", "right"); // Ajustement pour la ligne "total"
     tableFooterLine.setAttribute("colspan", "6");
 
     headName.textContent = "Nom";
@@ -60,7 +59,7 @@ function createCartArray() {
     tableFooterLine.appendChild(footerCheckout);
     footerCheckout.appendChild(footerCheckoutBtn);
 
-    let tableBody = document.createElement("tbody"); // On rajoute une ligne au tableau pour chaque article ajouté
+    let tableBody = document.createElement("tbody"); // On rajoute une ligne au tableau pour chaque article ajouté au panier
     for (let i = 0; i < cart.length; i++) {
       tableBody.appendChild(createArrayLine(cart[i], i));
       totalPrice += cart[i].price * cart[i].number;
@@ -69,8 +68,9 @@ function createCartArray() {
     footerTotal.textContent = "Total : " + totalPrice + " €";
     //console.log(totalPrice);
 
-    cartTable.appendChild(tableBody);
+    cartTable.appendChild(tableBody); 
 
+  // Remplissage du tableau  ---------------------------------------------------------------------------------------
     function createArrayLine(item, i) {
       let articleIndex = i;
       let articleLine = document.createElement("tr");
@@ -160,20 +160,21 @@ function createCartArray() {
         cartAddWidget();
       });
 
-      //console.log([item.name, item.price, item.number]);
 
-      return articleLine;
+      return articleLine; // Une ligne est créé pour chaque nouvel article
     }
+
   } else {
     // Un message apparaît si le panier est vide
     cartTable.innerHTML =
-      "<p class='text-center'>Oops ! Il semblerait que celui-ci soit vide.";
+      "<p class='text-center'>Oops ! Il semblerait que celui-ci soit vide.</p>";
     cartForm.innerHTML = ""; // Le formulaire n'apparaît pas non plus
   }
 }
 
-// Mise en place du formulaire de commande ----------------------------------------------
-function getFormData() {
+// Mise en place du formulaire pour finaliser la commande et l'envoyer au serveur  --------------------------------------------------------------------------
+
+function getFormData() { // Cette fonction enverra le tableau products et l'objet contact en cliquant sur le bouton "finaliser"
   let products = [];
   for (let i = 0; i < cart.length; i++) {
     // Itération du nombre d'articles par ID, pour l'envoi au serveur
@@ -188,8 +189,7 @@ function getFormData() {
   let city = document.getElementById("formCity").value;
   let email = document.getElementById("formEmail").value;
 
-  let contact = {
-    // Création d'un object contact en prévision de son envoi au serveur
+  let contact = { // Création d'un objet contact en prévision de son envoi au serveur
     firstName: firstName,
     lastName: lastName,
     address: address,
@@ -202,7 +202,7 @@ function getFormData() {
 
 function sendFormData(data) {
   // Envoi de products et contact au serveur via la méthode POST
-  fetch(apiURL + "order", {
+  fetch(apiURL + "order", { // "order" est un paramètre demandé par l'API
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -210,7 +210,7 @@ function sendFormData(data) {
     body: JSON.stringify(data),
   })
     .then((response) => {
-      console.log(response);
+      //console.log(response);
       return response.json();
     })
     .then((response) => {
@@ -219,18 +219,23 @@ function sendFormData(data) {
       localStorage.setItem("totalPrice", totalPrice); // On y rajoute le prix total pour l'utiliser sur la page de confirmation
       window.location.href = "confirmation.html"; // La page de confirmation est chargée
     })
+
     .catch((error) => {
       alert("Erreur !", error);
     });
+
+    //console.log(data)   
 }
 
+// Gestion des boutons "commander" et "finaliser" -------------------------------------------------------------------
 footerCheckoutBtn.addEventListener("click", () => {
   // Le formulaire apparaît lorsqu'on clique sur le bouton "commander"
   cartForm.style.display = "block";
 });
 
 cartForm.addEventListener("submit", (evnt) => {
-  // Lorsqu'on clique sur le bouton du formulaire les données sont transmises au serveur
+  // Lorsqu'on clique sur le bouton du formulaire les données products & contact sont transmises au serveur
   evnt.preventDefault();
   getFormData();
 });
+

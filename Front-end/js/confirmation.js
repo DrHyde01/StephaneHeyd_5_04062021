@@ -1,4 +1,5 @@
-// On récupérère les informations necessaires pour l'affichage du message de confirmation
+// On récupérère les informations necessaires pour l'affichage du message de confirmation --------------------------
+function displayConfirmation() {
 let orderID = document.getElementById("orderID");
 let orderPrice = document.querySelector(".orderPrice");
 let orderConfirmationOK = document.querySelector(".orderConfirmationSuccess");
@@ -17,6 +18,9 @@ if (orderConfirm.length == 0) {
   orderConfirmationOK.style.display = "none";
   orderConfirmationNOK.style.display = "block";
 }
+};
 
-// Vidage du locaStorage une fois la page de confirmation chargée
+displayConfirmation();
+
+// Vidage du locaStorage une fois la page de confirmation chargée ----------------------------------------------
 localStorage.clear();

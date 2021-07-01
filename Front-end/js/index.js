@@ -1,5 +1,6 @@
 import products from "./main.js"; // On récupère la class products du fichier main
 
+// Appel de l'API --------------------------------------------------------------------------------------------------------
 fetch(apiURL) // On récupère les articles de l'API
   .then((response) => response.json()) // La promesse d'un fichier JSON si l'API répond
 
@@ -11,11 +12,11 @@ fetch(apiURL) // On récupère les articles de l'API
         data[i]._id,
         data[i].description,
         data[i].imageUrl,
-        data[i].lenses || data[i].colors || data[i].varnish, // Les options seront sélectionnez en fonction de l'API demandée
+        data[i].lenses || data[i].colors || data[i].varnish, // Les options seront sélectionnées en fonction de l'API demandée
         data[i].name,
         data[i].price
       );
-      console.log(cameras);
+      //console.table(data)
       cameras.displayProducts(); // Et pour chaque article la structure html est récupérée
     }
   })

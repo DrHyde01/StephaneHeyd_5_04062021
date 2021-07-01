@@ -1,12 +1,14 @@
-import products from "./main.js";
+import products from "./main.js"; // On récupère la class products du fichier main
 
-// Déclaration des paramètres URL à récupérer pour l'id
+// Déclaration des paramètres URL à récupérer pour l'id -----------------------------------------------------------------
 const urlParams = new URLSearchParams(window.location.search); // On cible l'url de la page
 const urlID = urlParams.get("id"); // Puis l'ID renseigné dedans
 
-let cameras; // Variables déjà déclarées en prévision du panier
+// Variables déclarées en prévision du panier --------------------------------------------------------------------------
+let cameras; 
 let quantity = 1;
 
+// Appel de l'API -------------------------------------------------------------------------------------------------------
 fetch(apiURL + urlID) // En rajoutant la variable urlID on demande que le produit lié à l'ID
   .then((response) => response.json())
 
@@ -15,11 +17,11 @@ fetch(apiURL + urlID) // En rajoutant la variable urlID on demande que le produi
       data._id,
       data.description,
       data.imageUrl,
-      data.lenses || data.colors || data.varnish, // Les options seront sélectionnez en fonction de l'API demandée
+      data.lenses || data.colors || data.varnish, // Les options seront sélectionnées en fonction de l'API demandée
       data.name,
       data.price
     );
-    //console.log(cameras);
+    //console.table(data)
     cameras.displayArticle();
   })
 
@@ -27,7 +29,7 @@ fetch(apiURL + urlID) // En rajoutant la variable urlID on demande que le produi
     alert("Erreur !", error);
   });
 
-// Mise en place du panier ------------------------------------------------------------------------------
+// Mise en place d'éléments permettant l'ajout d'articles au panier ---------------------------------------------------------------------------------------------
 
 // Gestion des boutons permettant de choisir le nombre d'articles
 let buttonLess = document.getElementById("quantityLess");
@@ -53,7 +55,7 @@ orderBtn.addEventListener("click", () => {
   // La fonction va rajouter l'article dans le Localstorage lors du clic sur le bouton "Ajouter au panier"
   let cartContent = JSON.parse(localStorage.getItem("articleStored")) || []; // L'objet ci-dessous sera récupéré dans un tableau
   let newArticle = {
-    // Objet créé pour sélectionner les informations les informations inhérentes à l'article sélectionné
+    // Objet créé pour sélectionner les informations inhérentes à l'article sélectionné
     id: cameras.id,
     name: cameras.name,
     price: cameras.price / 100,
@@ -77,5 +79,5 @@ orderBtn.addEventListener("click", () => {
   localStorage.setItem("articleStored", JSON.stringify(cartContent));
 
   cartAddModal(); // Une modal s'affiche nous informant de l'ajout d'un article
-  cartAddWidget(); // Le widget est mis à jour en fonction du nombre d'articles au panier
+  cartAddWidget(); // Le widget est mis à jour en fonction du nombre d'articles dans le panier
 });

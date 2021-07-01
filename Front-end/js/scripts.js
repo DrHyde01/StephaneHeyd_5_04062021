@@ -1,11 +1,11 @@
-// Déclaration de l'URL de l'API
-const apiURL = "http://localhost:3000/api/cameras/";
+// Déclaration de l'URL de l'API -------------------------------------------------------------------------------------
+const apiURL = "http://localhost:3000/api/teddies/";
+
+// Déclaration de variables utilisées sur l'ensemble du site -----------------------------------------------------------
+let cart = JSON.parse(localStorage.getItem("articleStored")) || []; // localStorage
+let navCartWidget = document.querySelector(".cart-widget"); // Widget panier
 
 // Création d'une fonction permettant d'afficher dans un widdget le nombre d'articles présents dans le panier -------------------
-
-let cart = JSON.parse(localStorage.getItem("articleStored")) || [];
-let navCartWidget = document.querySelector(".cart-widget");
-
 cartAddWidget();
 
 function cartAddWidget() {
@@ -23,7 +23,7 @@ function cartAddWidget() {
   }
 }
 
-// Fonction affichant une modal lors de l'ajout d'article au panier
+// Fonction affichant une modal lors de l'ajout d'article au panier ----------------------------------------------------------
 function cartAddModal() {
   let cartModal = document.querySelector(".modalCartAdd");
   cartModal.style.display = "block";

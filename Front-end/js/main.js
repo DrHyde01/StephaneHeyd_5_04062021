@@ -1,4 +1,4 @@
-// Ici nous créons une classe products pour rendre notre script plus maintenable -----------------------------------
+// Ici nous créons une classe products pour rendre notre script plus maintenable ---------------------------------------
 class products {
   constructor(id, description, imageUrl, customize, name, price) {
     // Le constructor sera appelé lors d'une nouvelle instance
@@ -11,11 +11,10 @@ class products {
     this.selectCustomization = customize[0];
   }
 
-  // Déclaration de fonctions pour le contenu html / css des différentes pages --------------------------------------
-
-  displayProducts() {
+  // Déclaration de fonctions pour le contenu html / css des pages index et produit --------------------------------------
+ displayProducts() {
     //On créé notre structure html qui acceuillera les données de la page d'acceuil
-    let cameraList = document.querySelector(".itemsList"); // MODIFIER NOM VARIABLES par PRODUCTS !
+    let cameraList = document.querySelector(".itemsList"); 
     let cameraBox = document.createElement("div");
     cameraList.append(cameraBox);
     cameraBox.className = "card col-md-4  m-2 p-3 text-center cameraBox"; // On y intègre également les classes utilitaires Bootstrap
@@ -60,8 +59,9 @@ class products {
     let articleBox = document.createElement("div");
     articleContainer.append(articleBox);
     articleBox.className =
-      "col-12 col-md-10 m-4 p-3 d-flex justify-content-center flex-wrap flex-md-nowrap itemBox"; // On y intègre également les classes utilitaires Bootstrap
+      "col-12 col-md-10 m-4 p-3 d-flex justify-content-center flex-wrap flex-md-nowrap itemBox"; 
 
+    // Ajout de l'image de l'article
     let imgBox = document.createElement("div");
     articleBox.append(imgBox);
     imgBox.className = "col-md-6 m-3 d-flex align-items-center";
