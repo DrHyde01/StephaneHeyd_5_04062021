@@ -65,7 +65,7 @@ orderBtn.addEventListener("click", () => {
 
   let alreadyInCart = cartContent.findIndex(
     // Renvoie l'index du premier élément du tableau
-    ((item) => item.id == newArticle.id) || // Arguments mis en place pour ne pas créer de doublons pour les id et options identiques
+    ((item) => item.id == newArticle.id) && // Arguments mis en place pour ne pas créer de doublons pour les id et options identiques
     ((item) => item.lense == newArticle.lense)
   );
 
