@@ -60,13 +60,15 @@ orderBtn.addEventListener("click", () => {
     name: cameras.name,
     price: cameras.price / 100,
     lense: cameras.selectCustomization,
-    number: quantity,
+    number: quantity
   };
 
   let alreadyInCart = cartContent.findIndex(
     // Renvoie l'index du premier élément du tableau
-    ((item) => item.id == newArticle.id));// Arguments mis en place pour ne pas créer de doublons pour les id et options identiques
-     
+    ((item) => item.id == newArticle.id) || // Arguments mis en place pour ne pas créer de doublons pour les id et options identiques
+    ((item) => item.lense == newArticle.lense)
+  );
+
 
   if (alreadyInCart == -1) {
     // Si l'article n'est pas encore présent (index à -1) on le rajoute au tableau
