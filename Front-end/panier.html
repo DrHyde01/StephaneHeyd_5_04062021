@@ -61,7 +61,7 @@
       </div>
     </div>
 
-    <!--- Formulaire du panier -->
+    <!--- Formulaire du panier avec utilisation de REGEX pour sécuriser les inputs -->
     <div class="container formContainer">
       <form>
         <div class="row justify-content-center">
@@ -92,6 +92,8 @@
         <div class="row justify-content-center mt-3">
           <div class="col-md-6 ">
             <label for="formEmail" class="form-label">Email</label>
+            <!-- Pour l'input le REGEX est relativement complexe, il oblige l'utilsation d'un format de type 
+                  nom@nomdedomaine.extensiondedomaine, avec la possibilité d'utiliser une extension large -->
             <input type="email" class="form-control" pattern="[a-z0-9\._%+-]+@[a-z0-9.-]+\.[a-z]{2,10}" placeholder="Votre adresse email" id="formEmail" required>
           </div>
         </div>

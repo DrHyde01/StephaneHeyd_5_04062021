@@ -1,14 +1,13 @@
-import products from "./main.js"; // On récupère la class products du fichier main
+import products from "./main.js"; // On récupère la class products du fichier main 
 
-// Appel de l'API --------------------------------------------------------------------------------------------------------
-fetch(apiURL) // On récupère les articles de l'API
-  .then((response) => response.json()) // La promesse d'un fichier JSON si l'API répond
+// Appel de l'API ---------------------------------------------------------------------------------------------------------------------------------------------
+fetch(apiURL) // On appelle la méthode fetch avec l'URL de notre API comme argument
+  .then((response) => response.json()) // Fetch nous renvoie une promise, si l'API répond then() sera exécutée, ici pour récupérer le résultat via un JSON
 
-  .then((data) => {
-    // Et celle d'en récupérer le contenu
+  .then((data) => { // Et ensuite le résultat sera manipulé afin d'être exploitable pour notre application 
     for (let i = 0; i < data.length; i++) {
-      // Boucle créé pour itérer chaque article
-      let cameras = new products( // Création d'une nouvelle instance afin de créer de nouveaux objets
+      // Boucle crée pour itérer chaque produit disponible
+      let cameras = new products( // Création d'une nouvelle instance afin de pouvoir récuperer chaque paramètres de nos produits,et pouvoir les réutiliser  
         data[i]._id,
         data[i].description,
         data[i].imageUrl,
@@ -16,11 +15,11 @@ fetch(apiURL) // On récupère les articles de l'API
         data[i].name,
         data[i].price
       );
-      //console.table(data)
-      cameras.displayProducts(); // Et pour chaque article la structure html est récupérée
+      //console.table(cameras)
+      cameras.displayProducts(); // Et pour chaque produit la structure html / css sera appliquée
     }
   })
-  .catch((error) => {
-    // Affichage d'une erreur si l'API ne répond pas
-    alert("Erreur !", error);
+
+  .catch((error) => { // Si l'API ne répondu pas la promise appelera catch() afin d'afficher ici un message d'erreur
+    alert("Impossible de récupérer la liste de nos produits", error);
   });

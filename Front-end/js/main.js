@@ -1,4 +1,4 @@
-// Ici nous créons une classe products pour rendre notre script plus maintenable ---------------------------------------
+// Déclaration d'une class products afin de rendre notre code plus maintenable -------------------------------------------------------------------
 class products {
   constructor(id, description, imageUrl, customize, name, price) {
     // Le constructor sera appelé lors d'une nouvelle instance
@@ -11,8 +11,10 @@ class products {
     this.selectCustomization = customize[0];
   }
 
-  // Déclaration de fonctions pour le contenu html / css des pages index et produit --------------------------------------
- displayProducts() {
+// Déclaration de fonctions globales pour structurer le contenu html / css des pages index et produit -----------------------------------------------------
+
+// Structure pour la liste de produits  
+displayProducts() {
     //On créé notre structure html qui acceuillera les données de la page d'acceuil
     let cameraList = document.querySelector(".itemsList"); 
     let cameraBox = document.createElement("div");
@@ -52,8 +54,9 @@ class products {
     cameraPrice.textContent = this.price / 100 + " €"; // Rendre le prix plus réaliste et rajout d'une devise
   }
 
-  displayArticle() {
-    //Structure html / css pour l'affiche individuel d'un article sur la page produit
+  // Structure pour l'affichage unitaire du produit
+displayArticle() {
+
     let articleContainer = document.querySelector(".itemContainer");
 
     let articleBox = document.createElement("div");
@@ -110,7 +113,7 @@ class products {
       articleOptions.append(articleOption);
     }
 
-    //Ajout de boutons pour modifier la quantité d'article à mettre dans le panier
+    //Ajout de boutons pour modifier la quantité d'articles à mettre dans le panier
     let quantityContainer = document.querySelector(".quantityContainer");
     articleTextBox.append(quantityContainer);
 
@@ -120,4 +123,4 @@ class products {
   }
 }
 
-export default products;
+export default products; // On exporte notre class products pour qu'elle soit disponible au moment de récupérer nos produits
