@@ -17,4 +17,4 @@ Le projet repose sur les axes suivants :
 
 ### Installation  
 
-Clonez le repo. Une fois dans le répertoire principal lancez la commande `npm install` puis `node Back-end/server.js` afin de lancer le serveur back-end, le terminal doit afficher `Listening on port 3000`
+Clonez le repo. Une fois dans le répertoire Front-end lancez la commande `npm install`. Faites de même dans le répertoire Back-end puis `node server.js` afin de lancer le serveur back-end, le terminal doit afficher `Listening on port 3000`
