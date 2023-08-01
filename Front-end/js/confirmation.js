@@ -14,7 +14,7 @@ orderPrice.textContent = orderConfirmPrice + " € "; // Ainsi que le prix total
 //Affichage d'un message en fonction de l'état du localStorage, si celui-ci est vide un message d'erreur apparaît
 orderConfirmationNOK.style.display = "none";
 
-if (orderConfirm.length == 0) {
+if (orderConfirm.length === 0) {
   orderConfirmationOK.style.display = "none";
   orderConfirmationNOK.style.display = "block";
 }
